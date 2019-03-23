@@ -1,6 +1,8 @@
 ## What is this?
 Enriches 911 emergency incident data with weather and parcel data.
 
+Given a json data file, this will add a `weather` and `parcel` field to it. `weather` will contain the weather conditions during the approximate time of the event, and `parcel` will contain data queried from the city.
+
 ## How complete is this?
 **This is really only a functioning backend API server.** The frontend is just provided so you don't have to query the site with postman or curl.
 
