@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
 import './app.css';
-import ReactImage from './react.png';
+import axios from 'axios';
 
 export default class App extends Component {
-  state = { username: null };
+  state = {
+    incidentId: 'F01705150050',
+    incidentData: null
+  };
 
   componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+    this.doQuery()
+  }
+
+  textChange = (e) => {
+    this.setState({ incidentId: e.target.value})
+  }
+
+  doQuery = () => {
+   axios.get(`/api/incident/${this.state.incidentId}`)
+      .then(data => this.setState({ incidentData: data })); 
   }
 
   render() {
-    const { username } = this.state;
+    const { incidentId, incidentData } = this.state;
     return (
       <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
+        <input type="text" onChange={this.textChange} value={incidentId}/>
+        <button onClick={this.doQuery} >Go!</button>
+        {incidentData ? <pre>{JSON.stringify(incidentData, null, 2)}</pre> : <h1>No data yet...</h1>}
       </div>
     );
   }
