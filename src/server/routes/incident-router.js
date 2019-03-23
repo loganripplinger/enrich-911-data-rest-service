@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
+const util = require("../util/enrich-functions");
 
 router.get("/:incidentId", function(req, res, next) {
   const incidentId = req.params.incidentId;
@@ -17,7 +18,12 @@ router.get("/:incidentId", function(req, res, next) {
 
     const incident = JSON.parse(data);
 
-    res.json(incident);
+    const enrichIncident = async res => {
+      const enrichedIncident = await util.enrich(incident);
+      res.json(enrichedIncident);
+    };
+
+    enrichIncident(res);
   });
 });
 
