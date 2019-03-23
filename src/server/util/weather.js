@@ -21,8 +21,8 @@ const getWeatherData = async incident => {
 const getWeatherQueryString = incident => {
   // Reference: https://darksky.net/dev/docs#time-machine-request
   const secretKey = "9b9be38d2215d383ceda8b3edd5db12d";
-  const lat = incident.address.latitude; // 37.541885
-  const long = incident.address.longitude; // -77.440624
+  const lat = incident.address.latitude;
+  const long = incident.address.longitude;
   const time = getTimeFromIncident(incident); // 2017-05-15T20:21:32-04:00
 
   if (lat === undefined || long === undefined || time === undefined) {
