@@ -8,7 +8,7 @@ Enriches 911 emergency incident data with weather and parcel data.
 This took roughly two to three hours. Most of that time was trying to get the Parcel service to work.
 
 ## Screenshots
-![Enriched Data](enriched-data.jpg)
+![Enriched Data](https://raw.githubusercontent.com/loganripplinger/enrich-911-data-rest-service/master/enriched-data.JPG)
 
 ## Installation
 
@@ -38,7 +38,7 @@ http://localhost:8080/api/incident/F01705150050
 
 If you decide to run the frontend just type the filename without an extension into the textbox and click go. This should happen by default when you open the frontend.
 
-![Query bar](query-bar.jpg)
+![Query bar](https://raw.githubusercontent.com/loganripplinger/enrich-911-data-rest-service/master/query-bar.JPG)
 
 ## How do I insert additional incident data?
 Put your data into a `.json` file and place into the `/server/data` folder.
